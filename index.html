@@ -21,21 +21,12 @@
                     <input type="email" id="email" autocomplete="off" placeholder=" ejemplo@ejemplo.cl" style="font-size: 12pt;">
                 </p>
                 <p>
-                    <label for="tipo">Tipo</label>
-                        <select name="tipo" id="tipo" style="font-size: 12pt;">
-                            <option value="seleccion" style="font-size: 12pt;">Elija una opción</option>
-                            <option value="dudas" style="font-size: 12pt;">Dudas</option>
-                            <option value="sugerencias" style="font-size: 12pt;">Sugerencias</option>
-                            <option value="reclamos" style="font-size: 12pt;">Reclamos</option>
-                            <option value="felicitaciones" style="font-size: 12pt;">Felicitaciones</option>
-                        </select>
-                </p>
-                <p>
                     <label for="comentario">Comentario</label><br />
                     <textarea name="comentario" id="comentario" cols="65" rows="10" style="margin-top: 10px;"></textarea>
                 </p>
                 <p>
-                    <input type="submit" id="submit" value="Enviar" onclick="addData()"/>
+                    <input type="submit" id="btnadd" value="Enviar" onclick="addData()"/>
+                    <button type="submit" id="actualizar">Actualizar</button>
                 </p>
             </form>
         </div>
@@ -47,7 +38,6 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Correo</th>
-                    <th>Opción</th>
                     <th>Acciones</th>
                 </tr>
             </th>

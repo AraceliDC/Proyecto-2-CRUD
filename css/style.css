@@ -48,7 +48,7 @@
     border-style: solid;
 }
 
-#submit {
+#btnadd {
     width: 475px;
     background-color: #39131D;
     font-size: 16pt;
@@ -68,6 +68,6 @@
     padding: 10px;
 }
 
-/*.tableData:hover{
-    background-color: gray;
-}*/
+#actualizar{
+    display: none;
+}
