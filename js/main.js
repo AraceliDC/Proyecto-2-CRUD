@@ -1,130 +1,122 @@
-function validarForm(){
-    let nombre = document.getElementById('nombre').value;
-    let email = document.getElementById('email').value;
-    let comentario = document.getElementById('comentario').value;
+function validateData(){
+    let nombre= document.getElementById('inputNombre').value;
+    let email= document.getElementById('inputCorreo').value;
+    let numero = document.getElementById('inputNumero').value;
 
-    if (nombre == "" ){
-        alert("Ingrese su nombre");
-        return false
+    if (nombre == ""){
+        alert("Ingrese un nombre");
+        return false;
     }
-    else if (!email.includes('@')){
-        alert("El correo no es valido");
-        return false
+    if (email == ""){
+        alert("Ingrese un correo");
+        return false;
+    } else if (!email.includes('@')){
+        alert("Ingrese un correo valido");
+        return false;
     }
-    else if (comentario == ""){
-        alert("Ingrese un comentario");
-        return false
+    if(numero == ""){
+        alert("Ingrese un telefono");
+        return false;
     }
     return true;
-};
+}
 
 function addData(){
-    if (validarForm() == true){
-        let nombre = document.getElementById('nombre').value;
-        let email = document.getElementById('email').value;
-        let comentario = document.getElementById('comentario').value;
+    if (validateData() == true){
+        let nombre= document.getElementById('inputNombre').value;
+        let email= document.getElementById('inputCorreo').value;
+        let numero = document.getElementById('inputNumero').value;
+        
 
-        let listpeople;
-        if (localStorage.getItem('listpeople') == null){
-            listpeople = [];
+        let listPeople;
+        if (localStorage.getItem('listPeople') == null){
+            listPeople = [];
+        } else {
+            listPeople = JSON.parse(localStorage.getItem('listPeople'))
         }
-        else {
-            listpeople = JSON.parse(localStorage.getItem('listpeople'));
-        }
-        listpeople.push({
+
+        listPeople.push({
             nombre: nombre,
             email: email,
-            comentario: comentario  
+            numero: numero
         });
+        localStorage.setItem('listPeople', JSON.stringify(listPeople));
 
-        localStorage.setItem('listpeople', JSON.stringify(listpeople))
-
-        showdata();
-
-        cleardata();
-        }
+        showData();
     
-}
-
-function cleardata(){
-    document.getElementById('nombre').value = "";
-    document.getElementById('email').value = "";
-    document.getElementById('comentario').value = "";
-}
-
-function showdata(){
-    let listpeople;
-    if (localStorage.getItem('listpeople') == null){
-        listpeople = [];
+        clearData();
     }
-    else {
-        listpeople = JSON.parse(localStorage.getItem('listpeople'));
+}
+
+function showData(){
+    let listPeople
+
+    if (localStorage.getItem('listPeople') == null){
+        listPeople = [];
+    } else {
+        listPeople = JSON.parse(localStorage.getItem('listPeople'));
     }
 
     let html = "";
-    listpeople.forEach(function (element, index){
-        html +="<tr>";
-        html +="<td>" + element.nombre + "</td>";
-        html +="<td>" + element.email + "</td>";
-        html +="<td>" + element.comentario + "</td>";
-        html +='<td><button onclick="updateData(' + index + ')" style=" font-size: 12pt; padding: 10px; border-radius: 8px; background-color: #C28F47; border: hidden; color: white;">Actualizar</button> <button onclick="deleteData(' + index + ')" id="btndelete" style=" font-size: 12pt; padding: 10px; border-radius: 8px; background-color: #39131D; border: hidden; color: white;">Eliminar</button></td>';
-        html +="</tr>";
+    listPeople.forEach(function (element, index){
+        html += "<tr>"
+        html += "<td>" + element.nombre + "</td>";
+        html += "<td>" + element.email + "</td>";
+        html += "<td>" + element.numero + "</td>";
+        html += '<td><button onclick="updateData(' + index + ')" class="btn btn-outline-primary">Editar</button> <button onclick="deleteData(' + index + ')" id="btnDelete" class="btn btn-outline-danger">Eliminar</button> </td>';
+        html += "</tr>";
     })
-
-    document.querySelector('#tableData tbody').innerHTML=html;
+    document.querySelector('#tableData tbody').innerHTML = html;
 }
+document.onload = showData();
 
-document.onload = showdata();
-
-function deleteData(index){
-    let listpeople
-    if (localStorage.getItem('listpeople') == null) {
-        listpeople = [];
+function clearData(){
+    document.getElementById('inputNombre').value="";
+    document.getElementById('inputCorreo').value="";
+    document.getElementById('inputNumero').value="";
+}
+function people(){
+    let listPeople
+    if (localStorage.getItem('listPeople') == null){
+        listPeople = [];
     } else {
-        listpeople = JSON.parse(localStorage.getItem('listpeople'));
+        listPeople = JSON.parse(localStorage.getItem('listPeople'));
     }
-
-    listpeople.splice(index, 1);
-
-    localStorage.setItem('listpeople', JSON.stringify(listpeople));
+}
+function deleteData(index){
+    people();
+    listPeople.splice(index, 1);
+    localStorage.setItem('listPeople', JSON.stringify(listPeople));
     showData();
 }
 
 function updateData(index){
-    document.getElementById("btnadd").style.display='none';
-    document.getElementById("actualizar", btnadd).style.display='block';
-    document.getElementById("btndelete").style.display='none';
-    btndelete
+    document.getElementById("btnAdd").style.display = 'none';
+    document.getElementById("btnDelete").style.display = 'none';
+    document.getElementById("btnUpdate", btnAdd).style.display = 'block';
+    btnDelete
 
-    let listpeople;
+    people();
 
-    if(localStorage.getItem('listpeople')== null){
-        listpeople = [];
-    }
-    else{
-        localStorage= JSON.parse(localStorage.getItem('listpeople'));
-    }
+    document.getElementById('inputNombre').value = listPeople[index].nombre;
+    document.getElementById('inputCorreo').value = listPeople[index].email;
+    document.getElementById('inputNumero').value = listPeople[index].numero;
 
-    document.getElementById('nombre').value=listpeople[index].nombre;
-    document.getElementById('email').value=listpeople[index].email;
-    document.getElementById('comentario').value=listpeople[index].comentario;
+    document.querySelector("#btnUpdate").onclick = function(){
+        if (validateData() == true){
+            listPeople[index].nombre = document.getElementById('inputNombre').value;
+            listPeople[index].email = document.getElementById('inputCorreo').value;
+            listPeople[index].numero = document.getElementById('inputNumero').value;
 
-    document.querySelector("#actualizar").onclick = function(){
-        if (validarForm == true){
-            listpeople[index].nombre=document.getElementById('nombre').value;
-            listpeople[index].email=document.getElementById('email').value;
-            listpeople[index].comentario=document.getElementById('comentario').value;
+            localStorage.setItem('listPeople', JSON.stringify(listPeople));
 
-            localStorage.setItem('listpeople', JSON.stringify(listpeople));
+            showData();
 
-            showdata()
+            clearData();
 
-            cleardata()
-
-            document.getElementById("btnadd").style.display='block';
-            document.getElementById("actualizar").style.display='none';
-            document.getElementById("btndelete").style.display='block';
+            document.getElementById("btnAdd").style.display = 'block';
+            document.getElementById("btnDelete").style.display = 'block';
+            document.getElementById("btnUpdate", btnAdd).style.display = 'none';
         }
-
     }
 }

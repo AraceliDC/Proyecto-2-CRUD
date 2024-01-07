@@ -1,73 +1,9 @@
 *{
-    background-color: whitesmoke;
     font-family: sans-serif;
     padding: 0;
     margin: 0;
 }
 
-.container-3 h1 {
-    font-size: 25pt;
-    font-weight: 900;
-    font: bold;
-    padding: 50px;
-    text-align: center;
-}
-
-.seccion {
-    margin-left: 700px;
-}
-
-.container-3 form input {
-    width: 400px;
-    height: 30px;
-    border-radius: 8px;
-    border-style: solid;
-    border-width: 1px;
-    margin-bottom: 10px;
-}
-
-#nombre{
-    margin-left: 7px;
-}
-
-#email{
-    margin-left: 14px;
-}
-
-.container-3 form select {
-    width: 402px;
-    height: 35px;
-    border-radius: 8px;
-    border-style: solid;
-    margin-left: 32px;
-    margin-bottom: 10px;
-}
-
-.container-3 form textarea {
-    border-radius: 8px;
-    border-style: solid;
-}
-
-#btnadd {
-    width: 475px;
-    background-color: #39131D;
-    font-size: 16pt;
-    color: whitesmoke;
-}
-
-.tabla{
-    margin-left: 400px;
-    margin-top: 100px;
-    width: 1000px
-}
-.tableData{
-    width: 100%;
-    border: 1px solid;
-    border-radius: 8px;
-    text-align: left;
-    padding: 10px;
-}
-
-#actualizar{
+#btnUpdate{
     display: none;
 }
