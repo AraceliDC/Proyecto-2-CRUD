@@ -1,4 +1,4 @@
-# Proyecto_Landing Meow Café
+# Proyecto_CRUD
 
 ## **ÍNDICE**
 * [1. Intro](#1-intro)
@@ -24,7 +24,6 @@ El objetivo principal fue desarrollar una interfaz para la aplicación CRUD usan
 
 ## 2. LINK
 
-[Pagina Langind Meow Café](https://aracelidc.github.io/Proyecto_Landing/)
-
+[Pagina_Inscripción_CRUD](https://aracelidc.github.io/Proyecto-2-CRUD/)
 
 La página web corresponde al emprendimiento "Escuela de programación". Enfocado principalmente en realizar talleres que permitan mejorar las habilidades de programación en adultos. 
