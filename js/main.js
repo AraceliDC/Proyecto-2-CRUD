@@ -7,10 +7,7 @@ function validateData(){
         alert("Ingrese un nombre");
         return false;
     }
-    if (email == ""){
-        alert("Ingrese un correo");
-        return false;
-    } else if (!email.includes('@')){
+    if (email == "" || !email.includes('@')){
         alert("Ingrese un correo valido");
         return false;
     }
@@ -82,9 +79,10 @@ function people(){
     } else {
         listPeople = JSON.parse(localStorage.getItem('listPeople'));
     }
+    return listPeople;
 }
 function deleteData(index){
-    people();
+    let listPeople = people();
     listPeople.splice(index, 1);
     localStorage.setItem('listPeople', JSON.stringify(listPeople));
     showData();
@@ -93,10 +91,11 @@ function deleteData(index){
 function updateData(index){
     document.getElementById("btnAdd").style.display = 'none';
     document.getElementById("btnDelete").style.display = 'none';
-    document.getElementById("btnUpdate", btnAdd).style.display = 'block';
+    document.getElementById("btnUpdate").style.display = 'block'; 
+
     btnDelete
 
-    people();
+    let listPeople = people();
 
     document.getElementById('inputNombre').value = listPeople[index].nombre;
     document.getElementById('inputCorreo').value = listPeople[index].email;
@@ -116,7 +115,7 @@ function updateData(index){
 
             document.getElementById("btnAdd").style.display = 'block';
             document.getElementById("btnDelete").style.display = 'block';
-            document.getElementById("btnUpdate", btnAdd).style.display = 'none';
+            document.getElementById("btnUpdate"&& btnAdd).style.display = 'none';
         }
     }
 }

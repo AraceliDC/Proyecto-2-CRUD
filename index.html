@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
-    <nav class="navbar bg-body-dark">
-        <div class="container-fluid">
-          <span class="navbar-text text-center text-black h2">
-           Bienvenido a la CRUD app
-          </span>
-        </div>
-      </nav>
-      <div class="container">
-        <div class="container mb-5">
-            <div class="row">
-                <div class="mb-3">
-                    <label for="nombre" class="form-label text-black">Nombre Completo</label>
-                    <input type="text" class="form-control" id="inputNombre" placeholder="Ingrese su nombre">
-                  </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label text-black">Correo</label>
-                    <input type="email" class="form-control" id="inputCorreo" placeholder="ejemplo@ejemplo.com">
-                </div>
-                <div class="mb-3">
-                    <label for="telefono" class="form-label text-black">Telefono</label>
-                    <input type="number" class="form-control" id="inputNumero" placeholder="+56 9 11111111">
-                </div>
-                <div class="container">
-                    <button type="submit" id="btnAdd" class="btn btn-outline-primary" onclick="addData()">Enviar</button>
-                    <button type="submit" id="btnUpdate" class="btn btn-outline-primary">Actualizar</button>
-                </div>
-            </div>
-            <hr>
-            <table class="table" id="tableData">
-                <thead>
-                  <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Telefono</th>
-                    <th scope="col">Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
+  <ul class="nav justify-content-center mb-5 bg-info text-white">
+    <li class="nav-item">
+      <p class="nav-text fs-2 fw-bold">Formulario inscripción curso intensivo FatChance BellyDance</p>
+    </li>
+  </ul>
 
-                </tbody>
-            </table>
-        </div>
+  <div class="container mb-5">
+    <div class="row">
+      <div class="mb-3">
+        <label for="nombre" class="form-label text-black">Nombre Completo</label>
+        <input type="text" class="form-control" id="inputNombre" placeholder="Ingrese su nombre">
       </div>
+      <div class="mb-3">
+        <label for="email" class="form-label text-black">Correo</label>
+        <input type="email" class="form-control" id="inputCorreo" placeholder="ejemplo@ejemplo.com">
+      </div>
+      <div class="mb-3">
+        <label for="telefono" class="form-label text-black">Telefono</label>
+        <input type="number" class="form-control" id="inputNumero" placeholder="+56 9 11111111">
+      </div>
+      <div class="container">
+        <button type="submit" id="btnAdd" class="btn btn-outline-primary" onclick="addData()">Enviar</button>
+        <button type="submit" id="btnUpdate" class="btn btn-outline-primary">Actualizar</button>
+      </div>
+    </div>
+    <br>
+    <br>
+    <table class="table" id="tableData">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
 
-    <script src="js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      </tbody>
+    </table>
+  </div>
+
+
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
